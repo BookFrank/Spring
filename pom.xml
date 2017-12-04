@@ -8,6 +8,7 @@
   <modules>
     <module>spring-boot</module>
     <module>spring-ssm</module>
+    <module>spring-web</module>
   </modules>
   <packaging>pom</packaging>
 
