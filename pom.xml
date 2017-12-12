@@ -6,6 +6,7 @@
     <artifactId>Spring</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
+        <module>spring-basic</module>
         <module>spring-boot</module>
         <module>spring-ssm</module>
         <module>spring-web</module>
