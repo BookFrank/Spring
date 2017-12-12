@@ -1,0 +1,55 @@
+<configuration debug="false">
+
+
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+    <property name="LOG_HOME" value="/Users/lina/logs" />
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/boot.log</file>
+        <encoder>
+            <pattern>%date %level {%thread} %logger{10} {%file:%line} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} {%thread} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--<filter class="com.yiche.bidder.adx.sohu.SohuADXLogsFilter" />-->
+        <file>${LOG_HOME}/logFile.${server.port}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <!--<fileNamePattern>${LOG_HOME}/logFile.${server.port}.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+            <fileNamePattern>${LOG_HOME}/logFile.${server.port}.%d{yyyy-MM-dd_HH-mm}.log</fileNamePattern>
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%msg| |%d%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--异步输出-->
+    <appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>100</queueSize>
+        <neverBlock>true</neverBlock>
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+
+    <logger name="test">
+        <appender-ref ref="ASYNC_CONSOLE"/>
+    </logger>
+
+    <!--根Logger-->
+    <root level="debug">
+        <!--<appender-ref ref="STDOUT"/>-->
+        <!--<appender-ref ref="FILE"/>-->
+        <!--<appender-ref ref="ROLLING_FILE"/>-->
+        <appender-ref ref="ASYNC_CONSOLE"/>
+    </root>
+
+</configuration>
