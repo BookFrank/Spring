@@ -1,11 +1,12 @@
 # Spring
 
-> 四季如春
+> 有关Web开发 & Spring相关框架的一些实践
 >
 
 ## 一. 简介 ##
 
-Spring，内含本人学习Spring框架的种种特性。有多个模块，Spring-Boot、SpringMVC、SSH等框架，不断学习。不断进步。Peace & Love
+Spring，内含本人学习Spring框架的种种特性。有多个模块，Spring-Boot、SpringMVC、SSH等框架，不断学习。不断进步。
+Peace & Love
 
 ## 二. 感谢 ##
 
