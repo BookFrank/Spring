@@ -2,12 +2,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>Spring</artifactId>
-        <groupId>com.tazine</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <groupId>com.tazine.spring</groupId>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tazine.basic</groupId>
     <artifactId>spring-basic</artifactId>
     <packaging>jar</packaging>
 

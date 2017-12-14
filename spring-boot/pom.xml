@@ -3,19 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tazine.boot</groupId>
+    <parent>
+        <artifactId>Spring</artifactId>
+        <groupId>com.tazine.spring</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
     <artifactId>spring-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
-
-    <parent>
-        <artifactId>Spring</artifactId>
-        <groupId>com.tazine</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
 
     <dependencies>
         <dependency>
@@ -50,6 +49,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.tazine.boot.Application</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
