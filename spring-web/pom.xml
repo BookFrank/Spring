@@ -56,9 +56,9 @@
         </dependency>
         <!--&lt;!&ndash; https://mvnrepository.com/artifact/ch.qos.logback/logback-core &ndash;&gt;-->
         <!--<dependency>-->
-            <!--<groupId>ch.qos.logback</groupId>-->
-            <!--<artifactId>logback-core</artifactId>-->
-            <!--<version>1.2.0</version>-->
+        <!--<groupId>ch.qos.logback</groupId>-->
+        <!--<artifactId>logback-core</artifactId>-->
+        <!--<version>1.2.0</version>-->
         <!--</dependency>-->
         <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-access -->
         <dependency>
@@ -66,19 +66,37 @@
             <artifactId>logback-access</artifactId>
             <version>1.2.0</version>
         </dependency>
-
     </dependencies>
+
+    <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+            <!--<id>alfresco-public</id>-->
+            <!--<url>https://artifacts.alfresco.com/nexus/content/groups/public</url>-->
+        <!--</pluginRepository>-->
+        <!--<pluginRepository>-->
+            <!--<id>alfresco-public-snapshots</id>-->
+            <!--<url>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots</url>-->
+            <!--<snapshots>-->
+                <!--<enabled>true</enabled>-->
+                <!--<updatePolicy>daily</updatePolicy>-->
+            <!--</snapshots>-->
+        <!--</pluginRepository>-->
+        <!--<pluginRepository>-->
+            <!--<id>beardedgeeks-releases</id>-->
+            <!--<url>http://beardedgeeks.googlecode.com/svn/repository/releases</url>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories>-->
+
     <build>
-        <finalName>spring-web</finalName>
-        <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.tomcat.maven</groupId>-->
-                <!--<artifactId>tomcat8-maven-plugin</artifactId>-->
-                <!--<version>2.2</version>-->
-                <!--<configuration>-->
-                    <!--<path>/${project.artifactId}</path>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat8-maven-plugin</artifactId>
+                    <version>3.0-r1655215</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+
 </project>
