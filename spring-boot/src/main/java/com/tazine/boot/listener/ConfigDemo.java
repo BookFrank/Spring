@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 /**
  * Created by lina on 2017/11/23.
  */
-@Component
 public class ConfigDemo implements ApplicationListener<EmbeddedServletContainerInitializedEvent> {
 
 
