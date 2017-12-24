@@ -11,6 +11,7 @@
         <module>spring-ssm</module>
         <module>spring-web</module>
         <module>spring-ssh</module>
+        <module>spring-ssm-seckill</module>
     </modules>
     <packaging>pom</packaging>
 
