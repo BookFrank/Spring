@@ -14,9 +14,11 @@ Peace & Love
 | ------------------- | --------------------- |
 | spring-basic  | 传统 WEB 开发，不使用 Spring       |
 | spring-web       | 使用 Spring 框架的 Web 开发 |
+| spring-mvc       | 使用 SpringMVC 框架的 Web 开发 |
 | spring-boot  | Spring Boot 框架实践             |
 | spring-ssh| Spring、Struts 和 Hibernate      |
 | spring-ssm    | Spring、SpringMVC 和 MyBatis       |
+| spring-ssm-seckill    | 基于SSM框架的秒杀系统 |
 
 ## 三. 感谢 ##
 
