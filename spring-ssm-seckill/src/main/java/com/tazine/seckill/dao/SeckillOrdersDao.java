@@ -3,7 +3,7 @@ package com.tazine.seckill.dao;
 import com.tazine.seckill.entity.SeckillOrders;
 
 /**
- * 秒杀订单 SeckillOrdersDao Interface
+ * 秒杀订单 SeckillOrdersDao.xml Interface
  *
  * @author frank
  * @since 1.0.0
