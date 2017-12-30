@@ -7,12 +7,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by lina on 2017/12/29.
+ * 秒杀 SeckillDaoImpl
  *
  * @author frank
  * @since 1.0.0
  */
-public class SeckillDaoImpl implements SeckillDao{
+public class SeckillDaoImpl implements SeckillDao {
     @Override
     public int reduceStock(long seckillId, Date killDate) {
         return 0;

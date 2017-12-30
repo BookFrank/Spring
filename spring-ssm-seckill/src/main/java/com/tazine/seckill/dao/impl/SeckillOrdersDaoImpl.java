@@ -4,7 +4,7 @@ import com.tazine.seckill.dao.SeckillOrdersDao;
 import com.tazine.seckill.entity.SeckillOrders;
 
 /**
- * Created by lina on 2017/12/29.
+ * 秒杀订单 SeckillOrdersDaoImpl
  *
  * @author frank
  * @since 1.0.0
