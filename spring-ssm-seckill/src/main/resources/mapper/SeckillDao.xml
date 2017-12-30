@@ -6,4 +6,35 @@
 <mapper namespace="com.tazine.seckill.dao.SeckillDao">
     <!-- 为 DAO 接口方法提供 SQL 语句配置 -->
 
+    <update id="reduceStock">
+        UPDATE
+            seckill
+        SET
+            number = number - 1
+        WHERE seckill_id = #{seckill_id}
+              AND #{killTime} >= start_time
+              AND #{killTime} <![CDATA[ <= ]]> end_time
+              AND number > 0
+    </update>
+
+    <select id="queryById" parameterType="long" resultType="Seckill">
+        SELECT
+            *
+        FROM
+            seckill
+        WHERE
+            seckill.seckill_id = #{seckillId}
+    </select>
+
+    <select id="queryAll" resultType="Seckill">
+        SELECT
+            *
+        FROM
+            seckill
+        WHERE
+            seckill.seckill_id = #{seckillId}
+        ORDER BY
+            seckill.create_time
+    </select>
+
 </mapper>
