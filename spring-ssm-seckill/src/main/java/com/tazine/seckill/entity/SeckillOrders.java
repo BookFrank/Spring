@@ -3,7 +3,7 @@ package com.tazine.seckill.entity;
 import java.util.Date;
 
 /**
- * Created by lina on 2017/12/25.
+ * 秒杀订单实体
  *
  * @author frank
  * @since 1.0.0
