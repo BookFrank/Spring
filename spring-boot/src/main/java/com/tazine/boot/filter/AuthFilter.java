@@ -5,8 +5,11 @@ import java.io.IOException;
 
 /**
  * 登录验证过滤器
+ *
+ * @author frank
+ * @since 1.0.0
  */
-public class AuthFilter implements Filter{
+public class AuthFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

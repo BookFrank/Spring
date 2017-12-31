@@ -1,16 +1,15 @@
 package com.tazine.boot.controller;
 
-import com.tazine.boot.listener.ConfigDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 /**
- * Created by lina on 2017/11/23.
+ * IndexController
+ *
+ * @author frank
+ * @since 1.0.0
  */
 @RestController
 public class IndexController {
@@ -33,7 +32,7 @@ public class IndexController {
 //    }
 
     @GetMapping(value = "/test")
-    public String test(){
+    public String test() {
         return env.getProperty("username");
     }
 

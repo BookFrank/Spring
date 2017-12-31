@@ -12,6 +12,7 @@ public class ConfigDemo implements ApplicationListener<EmbeddedServletContainerI
 
     private int serverPort;
 
+    @Override
     public void onApplicationEvent(EmbeddedServletContainerInitializedEvent event) {
         this.serverPort = event.getEmbeddedServletContainer().getPort();
     }
