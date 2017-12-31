@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 /**
  * Servlet有线程不安全的隐患
  *
- * @author Frank
+ * @author frank
  * @since 1.0.0
  */
 @WebServlet("/use")

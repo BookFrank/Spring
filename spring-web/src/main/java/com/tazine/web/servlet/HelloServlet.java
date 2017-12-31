@@ -13,7 +13,7 @@ import java.util.Date;
 /**
  * 测试 Servlet
  *
- * @author Frank
+ * @author frank
  * @since 1.0.0
  */
 @WebServlet("/hello")
