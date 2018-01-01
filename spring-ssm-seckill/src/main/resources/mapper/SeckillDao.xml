@@ -34,7 +34,8 @@
         WHERE
             seckill.seckill_id = #{seckillId}
         ORDER BY
-            seckill.create_time
+            seckill.create_time DESC
+        LIMIT ${offset}, ${limit}
     </select>
 
 </mapper>
