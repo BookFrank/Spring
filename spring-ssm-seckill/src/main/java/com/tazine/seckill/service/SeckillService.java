@@ -2,6 +2,9 @@ package com.tazine.seckill.service;
 
 import com.tazine.seckill.entity.Seckill;
 import com.tazine.seckill.entity.dto.Exposer;
+import com.tazine.seckill.entity.dto.SeckillExecution;
+import com.tazine.seckill.exception.RepeatKillException;
+import com.tazine.seckill.exception.SeckillCloseException;
 
 import java.util.List;
 
@@ -30,7 +33,8 @@ public interface SeckillService {
      */
     Exposer exposeSeckillUrl(long seckillId);
 
-    void executeSeckill(long seckillId, long userPhone, String md5);
+    SeckillExecution executeSeckill(long seckillId, long userPhone, String md5)
+            throws SecurityException,SeckillCloseException,RepeatKillException;
 
 
 }
