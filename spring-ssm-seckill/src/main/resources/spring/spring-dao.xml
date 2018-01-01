@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!-- 1、引入数据库配置 -->
+    <context:property-placeholder location="classpath*:jdbc.properties"/>
+
+    <!-- 2、配置数据库连接池 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 配置连接池属性 -->
+        <property name="driverClass" value="${driver}"/>
+        <property name="jdbcUrl" value="${url}"/>
+        <property name="user" value="${username}"/>
+        <property name="password" value="${password}"/>
+
+        <!-- 连接池私有属性 -->
+        <property name="maxPoolSize" value="30"/>
+        <property name="minPoolSize" value="10"/>
+    </bean>
+
+    <!-- 3、配置 sqlSessionFactory (来自于spring-mybatis整合jar)-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 注入数据库连接池 -->
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 配置MyBatis全局配置文件 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!-- 配置扫描Entity包，使用别名(可以使用;分割多个) -->
+        <property name="typeAliasesPackage" value="com.tazine.seckill.entity"/>
+        <!-- 扫描sql配置文件，mapper需要的配置文件 -->
+        <property name="mapperLocations" value="classpath*:mapper/*.xml"/>
+    </bean>
+
+    <!-- 4、配置扫描DAO接口包，在spring启动容器时，动态实现DAO接口并注入spring -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 注入sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!-- 给出扫描DAO接口包 -->
+        <property name="basePackage" value="com.tazine.seckill.dao"/>
+    </bean>
+
+
+
+
+
+
+</beans>

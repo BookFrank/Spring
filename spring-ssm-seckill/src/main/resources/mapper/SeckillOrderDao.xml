@@ -3,6 +3,33 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.tazine.seckill.dao.SeckillOrdersDao">
+<mapper namespace="com.tazine.seckill.dao.SeckillOrdersDao">
+    <insert id="insertSeckill">
+        <!-- 主键冲突返回0 -->
+        INSERT IGNORE INTO
+        seckill_orders (seckill_id, user_phone)
+        VALUES
+        (${seckillId}, ${userPhone}, ${state})
+    </insert>
 
+    <select id="queryByIdWithSeckill" parameterType="long" resultType="SeckillOrders">
+        <!-- 在查询seckill_orders的同时将Seckill映射到其属性上 -->
+        SELECT
+            so.seckill_id,
+            so.user_phone,
+            so.create_time,
+            so.state,
+            sk.seckill_id as "seckill.seckill_id",
+            sk.number as "seckill.number",
+            sk.create_time as "seckill.create_time",
+            sk.start_time as "seckill.start_time",
+            sk.end_time as "seckill.end_time",
+            sk.name as "seckill.name"
+        FROM
+            seckill_orders so
+            INNER JOIN
+            seckill sk
+                ON so.seckill_id = sk.seckill_id
+        WHERE so.seckill_id = ${seckillId}
+    </select>
 </mapper>
