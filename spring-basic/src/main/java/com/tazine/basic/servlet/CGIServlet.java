@@ -104,13 +104,16 @@ public class CGIServlet extends HttpServlet {
         try {
             Context ctx = new InitialContext();
             String author = (String) ctx.lookup("author");
-            writer.write("JNDI 获取资源（资源注入）<br/>");
+            writer.write("JNDI 获取资源（资源注入）- Java 命名与目录接口，Java Naming and Directory Interface<br/>");
             writer.write("author：" + author + "<br/>");
             writer.write("<br/><br/>");
-
         } catch (NamingException e) {
             e.printStackTrace();
         }
+
+        writer.write("注射数据源<br/>");
+        writer.write("Servlet中不仅可以注射String、Integer等类型的变量，还可以注入自定义的 Java Bean以及数据源等复杂类型变量<br/>");
+        writer.write("<br/><br/>");
 
 
         writer.write("</p>");
