@@ -5,4 +5,50 @@
          version="3.1"
          metadata-complete="true">
     <!-- Maven 创建的 Servlet 版本为2.3，版本过旧不支持 JSTL，更改为 3.1 -->
+    
+    <welcome-file-list>
+        <welcome-file>hello.jsp</welcome-file>
+        <welcome-file>welcome.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <context-param>
+        <param-name>moduleName</param-name>
+        <param-value>Spring Basic</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>CGIServlet</servlet-name>
+        <servlet-class>com.tazine.basic.servlet.CGIServlet</servlet-class>
+        <init-param>
+            <param-name>desc</param-name>
+            <param-value>该Servlet用来实践无JSP的JavaWeb</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CGIServlet</servlet-name>
+        <url-pattern>/cgi</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CaptchaServlet</servlet-name>
+        <servlet-class>com.tazine.basic.servlet.CaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CaptchaServlet</servlet-name>
+        <url-pattern>/captcha</url-pattern>
+    </servlet-mapping>
+
+    <!-- @Resource 资源配置 -->
+    <!-- <env-entry> 仅能配置java.lang包下标准类型的变量 -->
+    <env-entry>
+        <env-entry-name>version</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>1.0.0</env-entry-value>
+    </env-entry>
+    <env-entry>
+        <env-entry-name>author</env-entry-name>
+        <env-entry-type>java.lang.String</env-entry-type>
+        <env-entry-value>frank</env-entry-value>
+    </env-entry>
 </web-app>
