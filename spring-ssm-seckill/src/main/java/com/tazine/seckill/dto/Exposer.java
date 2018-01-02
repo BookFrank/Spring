@@ -1,4 +1,4 @@
-package com.tazine.seckill.entity.dto;
+package com.tazine.seckill.dto;
 
 /**
  * 暴露秒杀地址 DTO
@@ -28,6 +28,14 @@ public class Exposer {
 
     public Exposer(boolean exposed, long now, long start, long end) {
         this.exposed = exposed;
+        this.now = now;
+        this.start = start;
+        this.end = end;
+    }
+
+    public Exposer(boolean exposed,long seckillId, long now, long start, long end) {
+        this.exposed = exposed;
+        this.seckillId = seckillId;
         this.now = now;
         this.start = start;
         this.end = end;

@@ -1,6 +1,7 @@
-package com.tazine.seckill.entity.dto;
+package com.tazine.seckill.dto;
 
 import com.tazine.seckill.entity.SeckillOrders;
+import com.tazine.seckill.enums.SeckillStateEnum;
 
 /**
  * 封装秒杀执行后结果
@@ -18,11 +19,17 @@ public class SeckillExecution {
 
     private SeckillOrders seckillOrder;
 
-    public SeckillExecution(long seckillId, int state, String stateInfo, SeckillOrders seckillOrder) {
+    public SeckillExecution(long seckillId, SeckillStateEnum seckillStateEnum, SeckillOrders seckillOrder) {
         this.seckillId = seckillId;
-        this.state = state;
-        this.stateInfo = stateInfo;
+        this.state = seckillStateEnum.getState();
+        this.stateInfo = seckillStateEnum.getStateInfo();
         this.seckillOrder = seckillOrder;
+    }
+
+    public SeckillExecution(long seckillId, SeckillStateEnum seckillStateEnum) {
+        this.seckillId = seckillId;
+        this.state = seckillStateEnum.getState();
+        this.stateInfo = seckillStateEnum.getStateInfo();
     }
 
     public long getSeckillId() {
