@@ -25,14 +25,14 @@ public class SeckillDaoTest {
 
     @Test
     public void reduceStock() throws Exception {
-        long id = 1000;
-        Seckill seckill = seckillDao.queryById(id);
-        System.out.println(seckill.getName());
-        System.out.println(seckill);
     }
 
     @Test
     public void queryById() throws Exception {
+        long id = 1000;
+        Seckill seckill = seckillDao.queryById(id);
+        System.out.println(seckill.getName());
+        System.out.println(seckill);
     }
 
     @Test

@@ -14,6 +14,7 @@ import com.tazine.seckill.service.SeckillService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
@@ -66,6 +67,10 @@ public class SeckillServiceImpl implements SeckillService {
     }
 
     @Override
+    @Transactional
+    /**
+     * 保证事务方法的执行时间尽可能短，不要穿插其他网络操作RPC/HTTP请求后者剥离到事务方法外部，保证纯数据库操作
+     */
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, SeckillCloseException, RepeatKillException {
         try {
             if (null == md5 || !md5.equalsIgnoreCase(getMD5(seckillId))) {
