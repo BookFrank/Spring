@@ -39,6 +39,42 @@
         <url-pattern>/captcha</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ForwardServlet</servlet-name>
+        <servlet-class>com.tazine.basic.servlet.jump.ForwardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ForwardServlet</servlet-name>
+        <url-pattern>/forward</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RedirectServlet</servlet-name>
+        <servlet-class>com.tazine.basic.servlet.jump.RedirectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RedirectServlet</servlet-name>
+        <url-pattern>/redirect</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RefreshServlet</servlet-name>
+        <servlet-class>com.tazine.basic.servlet.jump.RefreshServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RefreshServlet</servlet-name>
+        <url-pattern>/refresh</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SafeServlet</servlet-name>
+        <servlet-class>com.tazine.basic.servlet.safe.ThreadSafetyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SafeServlet</servlet-name>
+        <url-pattern>/safe</url-pattern>
+    </servlet-mapping>
+
     <!-- @Resource 资源配置 -->
     <!-- <env-entry> 仅能配置java.lang包下标准类型的变量 -->
     <env-entry>

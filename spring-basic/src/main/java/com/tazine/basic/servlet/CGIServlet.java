@@ -50,6 +50,7 @@ public class CGIServlet extends HttpServlet {
         String remoteUser = req.getRemoteUser();
 
         String requestedSessionId = req.getRequestedSessionId();
+        String contextPath = req.getContextPath();
 
 
         PrintWriter writer = resp.getWriter();
@@ -61,6 +62,7 @@ public class CGIServlet extends HttpServlet {
         writer.write("<p>");
         writer.write("requestUri：" + req.getRequestURI() + "<br/>");
         writer.write("requestedSessionId：" + requestedSessionId + "<br/>");
+        writer.write("contextPath：" + contextPath + "<br/>");
         writer.write("<br/><br/>");
 
         writer.write("remoteAddr：" + remoteAddr + "<br/>");
