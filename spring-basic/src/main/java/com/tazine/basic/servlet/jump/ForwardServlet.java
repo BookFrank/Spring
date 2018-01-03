@@ -19,7 +19,7 @@ public class ForwardServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        String destination = req.getParameter("forward");
+        String destination = req.getParameter("f");
         RequestDispatcher dis;
         if (null == destination){
             resp.getWriter().print("请输入 forward 参数（file、jsp、servlet）");

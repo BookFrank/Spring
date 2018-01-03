@@ -5,10 +5,8 @@
          version="3.1"
          metadata-complete="true">
     <!-- Maven 创建的 Servlet 版本为2.3，版本过旧不支持 JSTL，更改为 3.1 -->
-    
+
     <welcome-file-list>
-        <welcome-file>hello.jsp</welcome-file>
-        <welcome-file>welcome.jsp</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 

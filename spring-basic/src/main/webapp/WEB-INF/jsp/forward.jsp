@@ -6,8 +6,10 @@
   Time: 上午10:18
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     Date date = new Date();
+    String hello = "Hello World";
 %>
 <html>
 <head>
@@ -21,6 +23,11 @@
         dis.forward(req, resp);
         <br/>
         <%= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(date) %>
+        <br/>
+        <%-- 第一个Hello不会输出任何内容，在<%%>中定义的变量，无法被${}访问 --%>
+        ${hello}
+        <%= hello%>
+
     </p>
 </body>
 </html>
