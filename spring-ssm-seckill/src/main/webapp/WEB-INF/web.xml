@@ -4,5 +4,26 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
          metadata-complete="true">
-  <!-- Maven 创建的 Servlet 版本为2.3，版本过旧不支持 JSTL，更改为 3.1 -->
+    <!-- Maven 创建的 Servlet 版本为2.3，版本过旧不支持 JSTL，更改为 3.1 -->
+
+    <!-- 配置 DispatcherServlet -->
+    <servlet>
+        <servlet-name>seckill-servlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--
+            配置SpringMVC 需要加载的配置文件
+            spring-dao.xml，spring-service.xml，spring-web.xml
+            MyBatis -> spring -> SpringMVC
+         -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/spring-*.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>seckill-servlet</servlet-name>
+        <!-- 默认匹配所有的请求 -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
 </web-app>

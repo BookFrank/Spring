@@ -1,0 +1,33 @@
+<configuration debug="true">
+
+    <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->
+    <property name="LOG_HOME" value="/Users/lina/logs" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} {%thread} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <!--异步输出-->
+    <appender name="ASYNC_CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>100</queueSize>
+        <neverBlock>true</neverBlock>
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+
+    <logger name="test">
+        <appender-ref ref="ASYNC_CONSOLE"/>
+    </logger>
+
+    <!--根Logger-->
+    <root level="debug">
+        <!--<appender-ref ref="STDOUT"/>-->
+        <!--<appender-ref ref="FILE"/>-->
+        <!--<appender-ref ref="ROLLING_FILE"/>-->
+        <appender-ref ref="ASYNC_CONSOLE"/>
+    </root>
+
+</configuration>
