@@ -1,11 +1,8 @@
 package com.tazine.basic.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
- *
  * @author frank
  * @since 1.0.0
  */
@@ -22,7 +19,14 @@ public class JdbcUtils {
         }
 
         try {
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/demo","root","");
+            Statement statement = connection.createStatement();
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER");
+
+            while (rs.next()){
+                System.out.println(rs.getString("name"));
+            }
 
 
         } catch (SQLException e) {
