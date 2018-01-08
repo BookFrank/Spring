@@ -1,9 +1,7 @@
 package com.tazine.boot.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * IndexController
@@ -11,14 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @author frank
  * @since 1.0.0
  */
-@RestController
+@Controller
 public class IndexController {
 
-    @Autowired
-    private Environment env;
-
-//    @Autowired
-//    private ConfigDemo configDemo;
 //
 //    @GetMapping(value = "/index")
 //    public String index(){
@@ -31,9 +24,9 @@ public class IndexController {
 //        return host + configDemo.getServerPort();
 //    }
 
-    @GetMapping(value = "/test")
-    public String test() {
-        return env.getProperty("username");
+    @GetMapping(value = {"/index","/hi"})
+    public String index() {
+        return "index";
     }
 
 
