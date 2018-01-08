@@ -1,5 +1,7 @@
 package com.tazine.boot.controller;
 
+import com.tazine.boot.dto.MailCfg;
+import com.tazine.boot.dto.Website;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -16,24 +18,40 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigController {
 
-    @Value("${my.website}")
-    private String website;
+    @Value("${website.founder}")
+    private String founder;
 
-    @Value(("${my.est}"))
+    @Value(("${website.est}"))
     private int est;
 
     @Autowired
     private Environment env;
 
+    @Autowired
+    private Website website;
+
+    @Autowired
+    private MailCfg mail;
+
     @RequestMapping(value = "/cfg", method = RequestMethod.GET)
     public String cfg() {
-        return "使用@Value(\"${username}\")注解获取配置文件中配置 " + website + " est " + est;
+        return "使用@Value(\"${website.founder}\")注解获取配置文件中配置 " + founder + " est " + est;
     }
 
     @RequestMapping(value = "/envi", method = RequestMethod.GET)
     public String env() {
-        System.out.println("env");
-        return "使用@Autowired Environment env.getProperty(\"website\")获取配置 " + env.getProperty("my.website") + " <br/>" + env.getProperty("my.desc");
+        return "使用@Autowired Environment env.getProperty(\"website.url\")获取配置 " + env.getProperty("website.url") + " <br/>" + env.getProperty("website.desc");
+    }
+
+    @RequestMapping(value = "/website", method = RequestMethod.GET)
+    public Website website() {
+        return website;
+    }
+
+
+    @RequestMapping(value = "/mail", method = RequestMethod.GET)
+    public MailCfg mail(){
+        return mail;
     }
 
 }
