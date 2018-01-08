@@ -1,15 +1,12 @@
-username: liyang-normal
-my:
-  username: frank
-  est: 2014
-  website: ${my.username}.com
-  desc: "${my.website} forever rise!"
-
-
 spring:
+  profiles:
+    active: dev
   datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo
+    username: root
     data-password:
-    data-username: root
-server:
-  port: 8080
-  context-path: /boot
+  jpa:
+    hibernate:
+      ddl-auto: update # create 每次程序启动时，创建一个空的表 update 不会清除数据 create-drop 应用停下来时会清楚表
+    show-sql: true

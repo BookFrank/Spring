@@ -1,0 +1,15 @@
+username: frank
+website:
+  founder: frank-prod
+  est: 2014
+  url: ${website.founder}.com
+  desc: "${website.url} forever rise!"
+
+
+spring:
+  datasource:
+    data-password:
+    data-username: root
+server:
+  port: 8080
+  context-path: /boot
