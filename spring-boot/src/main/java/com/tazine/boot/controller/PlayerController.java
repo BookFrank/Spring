@@ -30,12 +30,12 @@ public class PlayerController {
     private PlayerService playerService;
 
     @GetMapping(value = "/list")
-    public List<Player> list(){
+    public List<Player> list() {
         return playerRepository.findAll();
     }
 
     @GetMapping(value = "/add")
-    public Player add(@RequestParam("name") String name, @RequestParam("num") int num, @RequestParam("team") String team){
+    public Player add(@RequestParam("name") String name, @RequestParam("num") int num, @RequestParam("team") String team) {
         Player player = new Player();
         player.setName(name);
         player.setNumber(num);
@@ -45,12 +45,13 @@ public class PlayerController {
 
     /**
      * 使用对象作为参数
+     *
      * @param player
      * @return
      */
     @GetMapping("/create")
-    public Player create(@Valid Player player, BindingResult result){
-        if (result.hasErrors()){
+    public Player create(@Valid Player player, BindingResult result) {
+        if (result.hasErrors()) {
             System.out.println(result.getFieldError().getDefaultMessage());
             return null;
         }
@@ -59,20 +60,15 @@ public class PlayerController {
 
     @GetMapping("/find")
     public Player find(@RequestParam("id") int id, @RequestParam(value = "name", required = false
-    ) String name){
-        if (null != name){
+    ) String name) {
+        if (null != name) {
             return playerRepository.findByName(name).get(0);
         }
         return playerRepository.findOne(id);
     }
 
     @GetMapping("/insert")
-    public void insert(){
+    public void insert() {
         playerService.insertTwo();
     }
-
-
-
-
-
 }
