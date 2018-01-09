@@ -50,10 +50,11 @@ public class PlayerController {
      * @return
      */
     @GetMapping("/create")
-    public Player create(@Valid Player player, BindingResult result) {
+    public Player create(@Valid Player player, BindingResult result) throws Exception {
         if (result.hasErrors()) {
             System.out.println(result.getFieldError().getDefaultMessage());
-            return null;
+            throw new Exception("您输入的参数有误");
+            //return null;
         }
         return playerRepository.save(player);
     }

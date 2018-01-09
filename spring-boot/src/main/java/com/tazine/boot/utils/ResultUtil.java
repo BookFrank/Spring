@@ -23,7 +23,7 @@ public class ResultUtil {
         return success(null);
     }
 
-    public static HttpResult fail(int code, String msg){
+    public static HttpResult error(int code, String msg){
         HttpResult result = new HttpResult();
         result.setCode(code);
         result.setMsg(msg);
