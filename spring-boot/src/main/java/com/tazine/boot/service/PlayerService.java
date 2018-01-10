@@ -38,6 +38,10 @@ public class PlayerService {
         playerRepository.save(p2);
     }
 
+    public Player findOne(Integer id){
+        return playerRepository.findOne(id);
+    }
+
 
 
 }

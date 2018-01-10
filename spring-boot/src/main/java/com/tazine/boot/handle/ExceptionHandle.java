@@ -1,14 +1,16 @@
 package com.tazine.boot.handle;
 
 import com.tazine.boot.entity.HttpResult;
+import com.tazine.boot.exception.PlayerException;
 import com.tazine.boot.utils.ResultUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by lina on 2018/1/9.
+ * Exception Advice
  *
  * @author frank
  * @since 1.0.0
@@ -16,15 +18,17 @@ import org.springframework.web.bind.annotation.RestController;
 @ControllerAdvice
 public class ExceptionHandle {
 
+    private static Logger logger = LoggerFactory.getLogger(ExceptionHandle.class);
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public HttpResult handle(Exception e){
-
+    public HttpResult handle(Exception e) {
+        if (e instanceof PlayerException) {
+            PlayerException playerException = (PlayerException) e;
+            return ResultUtil.error(playerException.getCode(), playerException.getMessage());
+        }
+        logger.error(e.getMessage());
         return ResultUtil.error(100, e.getMessage());
-
     }
-
-
 }
 

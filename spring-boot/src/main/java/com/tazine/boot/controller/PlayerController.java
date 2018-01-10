@@ -1,6 +1,7 @@
 package com.tazine.boot.controller;
 
 import com.tazine.boot.entity.Player;
+import com.tazine.boot.exception.PlayerException;
 import com.tazine.boot.repository.PlayerRepository;
 import com.tazine.boot.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +54,7 @@ public class PlayerController {
     public Player create(@Valid Player player, BindingResult result) throws Exception {
         if (result.hasErrors()) {
             System.out.println(result.getFieldError().getDefaultMessage());
-            throw new Exception("您输入的参数有误");
-            //return null;
+            throw new PlayerException(1000, "您输入的参数有误");
         }
         return playerRepository.save(player);
     }
