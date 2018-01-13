@@ -7,7 +7,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 /**
- * Created by lina on 2018/1/8.
+ * Player
  *
  * @author frank
  * @since 1.0.0
@@ -24,7 +24,7 @@ public class Player {
     private String team;
 
     @Min(value = 0, message = "球衣号码应在0-99之间")
-    @Max(value = 99,message = "球衣号码应在0-99之间")
+    @Max(value = 99, message = "球衣号码应在0-99之间")
     private Integer number;
 
     public Integer getId() {
