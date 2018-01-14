@@ -9,6 +9,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ApplicationTests {
 
+
+	public void annoSignIn(){
+
+	}
+
+
 	@Test
 	public void contextLoads() {
 	}
