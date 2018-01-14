@@ -1,6 +1,7 @@
 package com.tazine.aop.service;
 
 import com.tazine.aop.domain.Product;
+import com.tazine.aop.security.AdminOnly;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,4 +37,15 @@ public class ProductService {
     public void baseAopDelete(Long id){
         System.out.println("Delete Product.");
     }
+
+    /**
+     * 基于注解 AOP 切面的权限校验
+     * @param id
+     */
+    @AdminOnly
+    public void annoAopDelete(Long id){
+        System.out.println("Delete Product.");
+    }
+
+
 }

@@ -28,5 +28,12 @@ public class SecurityAspect {
         authService.checkAccess();
     }
 
+    @Pointcut("@annotation(AdminOnly)")
+    public void adminOnly(){}
+
+    @Before("adminOnly()")
+    public void adminOnlyCheck(){
+        authService.checkAccess();
+    }
 
 }

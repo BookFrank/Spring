@@ -20,7 +20,7 @@ public class ProductServiceTest {
     @Autowired
     private ProductService productService;
 
-    @Test
+    @Test(expected = Exception.class)
     public void classicalDelete() throws Exception {
         CurrentUserHolder.set("frank");
         productService.classicalDelete(1L);
@@ -31,5 +31,12 @@ public class ProductServiceTest {
         CurrentUserHolder.set("frank");
         productService.baseAopDelete(1L);
     }
+
+    @Test(expected = Exception.class)
+    public void annoAopDelete() throws Exception {
+        CurrentUserHolder.set("frank");
+        productService.baseAopDelete(1L);
+    }
+
 
 }
