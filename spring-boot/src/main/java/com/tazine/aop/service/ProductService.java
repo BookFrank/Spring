@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by lina on 2018/1/14.
+ * ProductService
  *
  * @author frank
  * @since 1.0.0
@@ -24,6 +24,8 @@ public class ProductService {
     /**
      * 传统权限校验方式
      * 侵入式代码设计，需要在每个方法前都校验权限
+     *
+     * @param id
      */
     public void classicalDelete(Long id) {
         authService.checkAccess();
@@ -32,18 +34,20 @@ public class ProductService {
 
     /**
      * 基于传统 AOP 切面的权限校验
+     *
      * @param id
      */
-    public void baseAopDelete(Long id){
+    public void baseAopDelete(Long id) {
         System.out.println("Delete Product.");
     }
 
     /**
      * 基于注解 AOP 切面的权限校验
+     *
      * @param id
      */
     @AdminOnly
-    public void annoAopDelete(Long id){
+    public void annoAopDelete(Long id) {
         System.out.println("Delete Product.");
     }
 

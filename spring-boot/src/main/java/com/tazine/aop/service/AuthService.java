@@ -4,7 +4,7 @@ import com.tazine.aop.security.CurrentUserHolder;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by lina on 2018/1/14.
+ * AuthService
  *
  * @author frank
  * @since 1.0.0
