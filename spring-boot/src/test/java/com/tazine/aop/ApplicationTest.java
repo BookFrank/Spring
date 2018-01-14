@@ -19,20 +19,5 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ApplicationTest {
 
-    @Autowired
-    private ProductService productService;
-
-    @Test(expected = RuntimeException.class)
-    public void annoSignIn(){
-        CurrentUserHolder.set("frank");
-        productService.delete(1L);
-    }
-
-    @Test
-    public void adminSignIn(){
-        CurrentUserHolder.set("admin");
-        productService.delete(1L);
-    }
-
 
 }
