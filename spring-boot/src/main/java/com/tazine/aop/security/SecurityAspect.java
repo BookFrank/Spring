@@ -20,7 +20,7 @@ public class SecurityAspect {
     @Autowired
     private AuthService authService;
 
-    @Pointcut(value = "execution(public * com.tazine.aop.service.ProductService.*(..))")
+    @Pointcut("execution(public * com.tazine.aop.service.ProductService.*(..))")
     public void security(){}
 
     @Before(value = "security()")
@@ -36,4 +36,13 @@ public class SecurityAspect {
         authService.checkAccess();
     }
 
+
+    /**
+     * 匹配指定类里的所有方法
+     */
+    @Pointcut("within(com.tazine.aop.service.ProductService)")
+    public void matchMethods(){}
+
+    @Pointcut("within(com.tazine.aop..*)")
+    public void matchPackage(){}
 }

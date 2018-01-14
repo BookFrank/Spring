@@ -1,6 +1,7 @@
 package com.tazine.aop.service;
 
 import com.tazine.aop.security.CurrentUserHolder;
+import org.aspectj.lang.annotation.Pointcut;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,4 @@ public class ProductServiceTest {
         CurrentUserHolder.set("frank");
         productService.baseAopDelete(1L);
     }
-
-
 }
