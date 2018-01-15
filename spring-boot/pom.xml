@@ -65,6 +65,12 @@
             <artifactId>spring-boot-starter-aop</artifactId>
             <version>${springboot.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+            <version>${springboot.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -73,7 +79,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.tazine.boot.Application</mainClass>
+                    <mainClass>com.tazine.boot.base.Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>
