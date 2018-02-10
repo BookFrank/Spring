@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.tazine.boot")
+@ComponentScan(basePackages = "com.tazine.boot.base")
 @EnableScheduling
 @EnableConfigurationProperties
 public class Application {
