@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by lina on 2018/1/15.
+ * IndexController
  *
  * @author frank
  * @since 1.0.0

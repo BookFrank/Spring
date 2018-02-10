@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Created by lina on 2018/1/15.
+ * Receiver
  *
  * @author frank
  * @since 1.0.0
@@ -13,18 +13,15 @@ import java.util.concurrent.CountDownLatch;
 @Component
 public class Receiver {
 
-
     // 倒计数锁存器
     private CountDownLatch latch = new CountDownLatch(1);
 
-    public void receiveMessage(String message){
+    public void receiveMessage(String message) {
         System.out.println("Received < " + message + " >");
         latch.countDown();
     }
 
-    public CountDownLatch getLatch(){
+    public CountDownLatch getLatch() {
         return latch;
     }
-
-
 }
