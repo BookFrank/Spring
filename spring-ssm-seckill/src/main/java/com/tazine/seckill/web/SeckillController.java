@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Created by lina on 2018/1/3.
+ * Seckill Controller
  *
  * @author frank
  * @since 1.0.0
