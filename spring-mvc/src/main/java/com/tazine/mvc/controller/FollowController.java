@@ -22,7 +22,7 @@ public class FollowController {
     public String replace(String comment) {
         if (comment != null) {
             for (String sw : sensitiveWords) {
-                comment.replaceAll(sw, "xx");
+                comment = comment.replaceAll(sw, "xx");
             }
         }
         return comment;
@@ -38,6 +38,7 @@ public class FollowController {
 
     @RequestMapping(value = "/showArticle", method = RequestMethod.GET)
     public String showArticle(Model model, SessionStatus sessionStatus) {
+        System.out.println(model.asMap());
         String articleId = (String) model.asMap().get("articleId");
         model.addAttribute("articleTitle", articleId + "号文章标题");
         model.addAttribute("article", articleId + "号文章内容");
