@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * IndexController
+ * 实现 EnvironmentAware 接口获得对 Environment 的感知能力
  *
  * @author jiaer.ly
  * @date 2018/02/17
  */
 @Controller
-public class IndexController implements EnvironmentAware{
+public class IndexController implements EnvironmentAware {
 
     private Environment environment;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index(Model model){
+    public String index(Model model) {
         model.addAttribute("str", "hello world");
         return "index.jsp";
     }
