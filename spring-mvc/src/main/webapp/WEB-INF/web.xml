@@ -4,5 +4,24 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
          metadata-complete="true">
-  <!-- Maven 创建的 Servlet 版本为2.3，版本过旧不支持 JSTL，更改为 3.1 -->
+    <!-- Maven 创建的 Servlet 版本为2.3，版本过旧不支持 JSTL，更改为 3.1 -->
+
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- 设置 SpringMVC xml 配置文件位置，未设置默认为 WEB-INF/{servlet-name}-xml -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>WEB-INF/springmvc-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
 </web-app>
